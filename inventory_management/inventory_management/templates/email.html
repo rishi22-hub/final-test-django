@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+      
+        .email-container {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            padding: 20px;
+        }
+        .email-content {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 5px;
+        }
+        .button {
+            display: inline-block;
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="email-container">
+        <div class="email-content">
+            <h1>Password Reset</h1>
+            <p>Click the button below to Activate your password:</p>
+            <a class="button" href="{{ reset_link }}" style="color: white;">Activate your account</a>
+        </div>
+    </div>
+</body>
+</html>
+

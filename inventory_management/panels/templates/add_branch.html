@@ -1,0 +1,83 @@
+<!-- my_template.html -->
+{% extends 'dashboard.html' %}
+
+{% block heading %}
+   Branch Form
+{% endblock %}
+
+        
+  {% block content %}
+
+
+
+
+<section class="content">
+<div class="container-fluid">
+    <div class="card card-default box p-5 bg-light mb-4">
+        
+<form method="post" novalidate>
+
+    {% csrf_token %}
+    <br>
+    <div class="card-body">
+    {% for field in form %}
+    {% if forloop.counter0|divisibleby:2 %}
+    <div class="row" style="margin-left: 20px;">
+{% endif %}
+   
+    <div class="col-md-6">
+        <div class="form-group">
+            <label>{{ field.label_tag }}
+
+
+                {% if field.field.required %}
+                <span class="required_fields">*</span>
+            {% endif %}
+                
+            </label>
+    
+            {{field}}
+    <!-- <span class="required"> </span> -->
+        {{ field.errors }}
+    </div>
+    </div>
+    {% if not forloop.counter0|divisibleby:2 or forloop.last %}
+                </div>
+            {% endif %}
+   
+{% endfor %}
+</div>
+        
+    <div class="card-footer mb-4" style="margin-left: 30px;">
+        <div class="row" style="margin-left: 2px;">
+            <div class="col">
+                <button type="submit" class="btn btn-primary">Submit</button>
+                <a href="{% url 'list_branch' %}" class="btn btn-primary ml-2">Cancel</a>
+            </div>
+        </div>
+    </div>
+    <br>
+    <br>
+    
+</form>
+</div>
+</div>
+</section>
+
+
+
+
+
+
+
+{% endblock %}
+
+
+
+    
+      
+
+
+
+
+
